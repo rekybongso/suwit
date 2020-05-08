@@ -13,7 +13,7 @@ https://github.com/rekybongso/Suwit.git
 
 ## TODO List
 - [x] Fungsi dasar untuk memainkan gunting-batu-kertas - Selesai ditambahkan pada 08/05/2020 - 18:24
-- [ ] Fungsi untuk mencatat skor (merekam dan menghapus entry skor)
+- [ ] Fungsi untuk mencatat skor
 - [ ] Bereksperimen dengan algoritma untuk memprediksi player lalu menjadikannya fungsi
 
 ## Kontak

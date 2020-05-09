@@ -12,8 +12,9 @@ https://github.com/rekybongso/Suwit.git
 * [Gradle](https://gradle.org/) - Dependency Management
 
 ## TODO List
-- [x] Fungsi dasar untuk memainkan gunting-batu-kertas - Selesai ditambahkan pada 08/05/2020 - 18:24
-- [ ] Fungsi untuk mencetak skor
+- [x] Fungsi dasar untuk memainkan gunting-batu-kertas - 08/05/2020 - 18:24
+- [x] Fungsi untuk mencetak skor - 09/05/2020 - 13:29
+- [ ] Merapihkan kode
 - [ ] Fungsi untuk mencatat history W/L ke dalam database
 - [ ] Bereksperimen dengan algoritma untuk memprediksi player lalu menjadikannya fungsi
 

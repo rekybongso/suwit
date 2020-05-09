@@ -19,11 +19,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_layout)
 
+        tvPoinPlayer.text = 0.toString()
         tvPilihanPlayer.text = getString(R.string.menunggu)
         tvPilihanLawan.text = getString(R.string.menunggu)
         tvLogs.text = getString(R.string.log_aktivitas)
-        tvPoinLawan.text = getString(R.string.lawan_in_main)
-        tvPoinPlayer.text = getString(R.string.player_in_main)
     }
 
     @SuppressLint("SetTextI18n")
@@ -31,8 +30,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val pilihGunting = getString(R.string.gunting_in_main)
         val pilihBatu = getString(R.string.batu_in_main)
         val pilihKertas = getString(R.string.kertas_in_main)
-
         val pilihanLawan = acakPilihanLawan()
+
         when (v.id){
             R.id.btnGunting -> {
                 tvPilihanPlayer.text = pilihGunting
@@ -44,9 +43,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     }
                     false -> {
                         if (apakahPlayerMenang(pilihGunting, pilihanLawan)){
+                            val lastPointPlayer = tvPoinPlayer.text.toString().toInt()
+                            val newPoinPlayer = lastPointPlayer + 1
+
                             tvLogs.text = getString(R.string.menang)
+                            tvPoinPlayer.text = newPoinPlayer.toString()
+
                         } else {
+                            val lastPointlawan = tvPoinLawan.text.toString().toInt()
+                            val newPoinlawan = lastPointlawan + 1
                             tvLogs.text = getString(R.string.kalah)
+                            tvPoinLawan.text = newPoinlawan.toString()
                         }
                     }
                 }
@@ -61,9 +68,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     }
                     false -> {
                         if (apakahPlayerMenang(pilihBatu, pilihanLawan)) {
+                            val lastPointPlayer = tvPoinPlayer.text.toString().toInt()
+                            val newPoinPlayer = lastPointPlayer + 1
+
                             tvLogs.text = getString(R.string.menang)
+                            tvPoinPlayer.text = newPoinPlayer.toString()
                         } else {
+                            val lastPointlawan = tvPoinLawan.text.toString().toInt()
+                            val newPoinlawan = lastPointlawan + 1
+
                             tvLogs.text = getString(R.string.kalah)
+                            tvPoinLawan.text = newPoinlawan.toString()
                         }
                     }
                 }
@@ -78,9 +93,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     }
                     false -> {
                         if (apakahPlayerMenang(pilihKertas, pilihanLawan)) {
+                            val lastPointPlayer = tvPoinPlayer.text.toString().toInt()
+                            val newPoinPlayer = lastPointPlayer + 1
+
                             tvLogs.text = getString(R.string.menang)
+                            tvPoinPlayer.text = newPoinPlayer.toString()
                         } else {
+                            val lastPointlawan = tvPoinLawan.text.toString().toInt()
+                            val newPoinlawan = lastPointlawan + 1
+
                             tvLogs.text = getString(R.string.kalah)
+                            tvPoinLawan.text = newPoinlawan.toString()
                         }
                     }
                 }

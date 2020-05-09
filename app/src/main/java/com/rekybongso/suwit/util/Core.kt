@@ -1,8 +1,11 @@
+@file:Suppress("NAME_SHADOWING")
+
 package com.rekybongso.suwit.util
 
+import java.util.*
+
 fun acakPilihanLawan () : String {
-    var pilihanLawan = listOf("GUNTING!!!", "BATU!!!", "KERTAS!!!").shuffled().first()
-    return  pilihanLawan
+    return listOf("GUNTING!!!", "BATU!!!", "KERTAS!!!").shuffled().first()
 }
 
 fun apakahSeri (pilihanPlayer: String, pilihanLawan: String) : Boolean {
@@ -10,8 +13,8 @@ fun apakahSeri (pilihanPlayer: String, pilihanLawan: String) : Boolean {
 }
 
 fun apakahPlayerMenang (pilihanPlayer : String, pilihanLawan: String) : Boolean{
-    var pilihanPlayer = pilihanPlayer.replace("!","").toLowerCase()
-    var pilihanLawan = pilihanLawan.replace("!","").toLowerCase()
+    val pilihanPlayer = pilihanPlayer.replace("!", "").toLowerCase(Locale.ROOT)
+    val pilihanLawan = pilihanLawan.replace("!","").toLowerCase(Locale.ROOT)
 
     return (pilihanPlayer == "batu" && pilihanLawan == "gunting") ||
             (pilihanPlayer == "kertas" && pilihanLawan == "batu") ||

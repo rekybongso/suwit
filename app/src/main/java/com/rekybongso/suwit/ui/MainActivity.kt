@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.main_layout)
 
         tvPoinPlayer.text = 0.toString()
+        tvPoinLawan.text = 0.toString()
         tvPilihanPlayer.text = getString(R.string.menunggu)
         tvPilihanLawan.text = getString(R.string.menunggu)
         tvLogs.text = getString(R.string.log_aktivitas)

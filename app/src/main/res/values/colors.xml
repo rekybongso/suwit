@@ -3,6 +3,6 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="warnaLawan">#c62828</color>
-    <color name="warnaPlayer">#01579b</color>
+    <color name="enemyColorAccent">#c62828</color>
+    <color name="playerColorAccent">#01579b</color>
 </resources>

@@ -1,129 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.MainActivity">
-    <TextView
-        android:id="@+id/tvPoinPlayer"
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="550dp"
-        android:layout_marginStart="20dp"
-        android:text="@string/point_player"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/warnaPlayer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="15dp">
+            <TextView
+                android:text="@string/playerLabel"
+                android:textSize="18sp"
+                android:textColor="@color/playerColorAccent"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/textViewPlayerPoint"
+                android:textSize="18sp"
+                android:text="@string/default_value"
+                android:layout_marginStart="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+            <TextView
+                android:text="@string/enemyLabel"
+                android:textSize="18sp"
+                android:textColor="@color/enemyColorAccent"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/textViewEnemyPoint"
+                android:textSize="18sp"
+                android:text="@string/default_value"
+                android:layout_marginStart="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </TableRow>
+    </TableLayout>
     <TextView
-        android:id="@+id/tvPoinLawan"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="550dp"
-        android:text="@string/point_lawan"
+        android:text="@string/playerLabel"
+        android:textAlignment="center"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/warnaLawan"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="2.1" />
-
-    <TextView
-        android:id="@+id/tvPilihanLawan"
+        android:textColor="@color/playerColorAccent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pilihan_lawan"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/textViewPlayerChoice"
+        android:text="@string/default_string"
         android:textAlignment="center"
         android:textSize="36sp"
-        android:textColor="@color/warnaLawan"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"/>
-    <TextView
+        android:textColor="@color/playerColorAccent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
         android:text="@string/versus"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintVertical_bias="0.47"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <TextView
-        android:id="@+id/tvPilihanPlayer"
+        android:padding="25dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pilihan_player"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:text="@string/enemyLabel"
         android:textAlignment="center"
-        android:textColor="@color/warnaPlayer"
+        android:textSize="24sp"
+        android:textColor="@color/enemyColorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/textViewEnemyChoice"
+        android:text="@string/default_string"
+        android:textAlignment="center"
         android:textSize="36sp"
-        app:layout_constraintVertical_bias="0.335"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:textColor="@color/enemyColorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <TextView
-        android:id="@+id/tvLog"
+        android:id="@+id/textViewLogs"
+        android:text="@string/logs"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:padding="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/log_aktivitas"
-        android:textSize="16sp"
-        android:lines="2"
-        android:maxLines="2"
-        android:textAlignment="center"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.84" />
-    <Button
-        android:id="@+id/btnGunting"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
-        android:text="@string/gunting_in_main"
-        android:onClick="onClick"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.97"
-        app:layout_constraintHorizontal_bias="0.1"/>
-    <Button
-        android:id="@+id/btnBatu"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
-        android:text="@string/batu_in_main"
-        android:onClick="onClick"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintLeft_toLeftOf="@id/btnGunting"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=".97" />
-    <Button
-        android:id="@+id/btnKertas"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
-        android:text="@string/kertas_in_main"
-        android:onClick="onClick"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintLeft_toLeftOf="@id/btnBatu"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.97" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:gravity="center">
+        <Button
+            android:id="@+id/buttonGunting"
+            android:onClick="onClick"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/gunting"/>
+        <Button
+            android:id="@+id/buttonBatu"
+            android:onClick="onClick"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/batu"/>
+        <Button
+            android:id="@+id/buttonKertas"
+            android:onClick="onClick"
+            android:layout_width="100dp"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:text="@string/kertas"/>
+    </LinearLayout>
+</LinearLayout>

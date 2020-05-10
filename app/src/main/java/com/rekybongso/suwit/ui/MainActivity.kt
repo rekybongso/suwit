@@ -1,112 +1,95 @@
 package com.rekybongso.suwit.ui
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.rekybongso.suwit.R
-import com.rekybongso.suwit.util.*
+import com.rekybongso.suwit.util.ExtraFun
+import com.rekybongso.suwit.util.bind
+import com.rekybongso.suwit.mechanic.GameMechanic
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    private val tvPoinPlayer : TextView by bind(R.id.tvPoinPlayer)
-    private val tvPoinLawan : TextView by bind(R.id.tvPoinLawan)
-    private val tvPilihanLawan : TextView by bind(R.id.tvPilihanLawan)
-    private val tvPilihanPlayer : TextView by bind(R.id.tvPilihanPlayer)
-    private val tvLogs : TextView by bind(R.id.tvLog)
+    private val extraFun = ExtraFun()
+    private val gameMechanic = GameMechanic()
+
+    private val tvPlayerPoint : TextView by bind(R.id.textViewPlayerPoint)
+    private val tvEnemyPoint : TextView by bind(R.id.textViewEnemyPoint)
+    private val tvPlayerInput : TextView by bind(R.id.textViewPlayerChoice)
+    private val tvEnemyInput : TextView by bind(R.id.textViewEnemyChoice)
+    private val tvInfoLogs : TextView by bind(R.id.textViewLogs)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_layout)
-
-        tvPoinPlayer.text = 0.toString()
-        tvPoinLawan.text = 0.toString()
-        tvPilihanPlayer.text = getString(R.string.menunggu)
-        tvPilihanLawan.text = getString(R.string.menunggu)
-        tvLogs.text = getString(R.string.log_aktivitas)
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onClick(v: View) {
-        val pilihGunting = getString(R.string.gunting_in_main)
-        val pilihBatu = getString(R.string.batu_in_main)
-        val pilihKertas = getString(R.string.kertas_in_main)
-        val pilihanLawan = acakPilihanLawan()
+        val playerLastPoint = tvPlayerPoint.text.toString()
+        val enemyLastPoint = tvEnemyPoint.text.toString()
+
+        val showPlayerScore = gameMechanic.calculateScore(playerLastPoint.toInt(), 1)
+        val showEnemyScore = gameMechanic.calculateScore(enemyLastPoint.toInt(), 1)
+
+        val enemyInput = extraFun.transformInput(gameMechanic.randomizeEnemyOutput())
 
         when (v.id){
-            R.id.btnGunting -> {
-                tvPilihanPlayer.text = pilihGunting
-                tvPilihanLawan.text = pilihanLawan
+            R.id.buttonGunting -> {
+                val playerInput = extraFun.transformInput(getString(R.string.gunting))
 
-                when (apakahSeri(pilihGunting,pilihanLawan)){
-                    true -> {
-                        tvLogs.text = getString(R.string.seri)
+                tvEnemyInput.text = enemyInput
+                tvPlayerInput.text = playerInput
+
+                when (gameMechanic.playTheGame(playerInput, enemyInput)){
+                    "tie" -> {tvInfoLogs.text = getString(R.string.seri)}
+                    "win" -> {
+                        tvInfoLogs.text = getString(R.string.menang)
+                        tvPlayerPoint.text = showPlayerScore.toString()
                     }
-                    false -> {
-                        if (apakahPlayerMenang(pilihGunting, pilihanLawan)){
-                            val lastPointPlayer = tvPoinPlayer.text.toString().toInt()
-                            val newPoinPlayer = lastPointPlayer + 1
-
-                            tvLogs.text = getString(R.string.menang)
-                            tvPoinPlayer.text = newPoinPlayer.toString()
-
-                        } else {
-                            val lastPointlawan = tvPoinLawan.text.toString().toInt()
-                            val newPoinlawan = lastPointlawan + 1
-                            tvLogs.text = getString(R.string.kalah)
-                            tvPoinLawan.text = newPoinlawan.toString()
-                        }
+                    "lose" -> {
+                        tvInfoLogs.text = getString(R.string.kalah)
+                        tvEnemyPoint.text = showEnemyScore.toString()
                     }
+
                 }
             }
-            R.id.btnBatu -> {
-                tvPilihanPlayer.text = pilihBatu
-                tvPilihanLawan.text = pilihanLawan
+            R.id.buttonBatu -> {
+                val playerInput = extraFun.transformInput(getString(R.string.batu))
 
-                when (apakahSeri(pilihBatu, pilihanLawan)) {
-                    true -> {
-                        tvLogs.text = getString(R.string.seri)
+                tvEnemyInput.text = enemyInput
+                tvPlayerInput.text = playerInput
+
+                when (gameMechanic.playTheGame(playerInput, enemyInput)){
+                    "tie" -> {tvInfoLogs.text = getString(R.string.seri)}
+                    "win" -> {
+                        tvInfoLogs.text = getString(R.string.menang)
+                        tvPlayerPoint.text = showPlayerScore.toString()
                     }
-                    false -> {
-                        if (apakahPlayerMenang(pilihBatu, pilihanLawan)) {
-                            val lastPointPlayer = tvPoinPlayer.text.toString().toInt()
-                            val newPoinPlayer = lastPointPlayer + 1
-
-                            tvLogs.text = getString(R.string.menang)
-                            tvPoinPlayer.text = newPoinPlayer.toString()
-                        } else {
-                            val lastPointlawan = tvPoinLawan.text.toString().toInt()
-                            val newPoinlawan = lastPointlawan + 1
-
-                            tvLogs.text = getString(R.string.kalah)
-                            tvPoinLawan.text = newPoinlawan.toString()
-                        }
+                    "lose" -> {
+                        tvInfoLogs.text = getString(R.string.kalah)
+                        tvEnemyPoint.text = showEnemyScore.toString()
                     }
+
                 }
             }
-            R.id.btnKertas -> {
-                tvPilihanPlayer.text = pilihKertas
-                tvPilihanLawan.text = pilihanLawan
+            R.id.buttonKertas -> {
+                val playerInput = extraFun.transformInput(getString(R.string.kertas))
 
-                when (apakahSeri(pilihKertas, pilihanLawan)) {
-                    true -> {
-                        tvLogs.text = getString(R.string.seri)
+                tvEnemyInput.text = enemyInput
+                tvPlayerInput.text = playerInput
+
+                when (gameMechanic.playTheGame(playerInput, enemyInput)){
+                    "tie" -> {tvInfoLogs.text = getString(R.string.seri)}
+                    "win" -> {
+                        tvInfoLogs.text = getString(R.string.menang)
+                        tvPlayerPoint.text = showPlayerScore.toString()
                     }
-                    false -> {
-                        if (apakahPlayerMenang(pilihKertas, pilihanLawan)) {
-                            val lastPointPlayer = tvPoinPlayer.text.toString().toInt()
-                            val newPoinPlayer = lastPointPlayer + 1
-
-                            tvLogs.text = getString(R.string.menang)
-                            tvPoinPlayer.text = newPoinPlayer.toString()
-                        } else {
-                            val lastPointlawan = tvPoinLawan.text.toString().toInt()
-                            val newPoinlawan = lastPointlawan + 1
-
-                            tvLogs.text = getString(R.string.kalah)
-                            tvPoinLawan.text = newPoinlawan.toString()
-                        }
+                    "lose" -> {
+                        tvInfoLogs.text = getString(R.string.kalah)
+                        tvEnemyPoint.text = showEnemyScore.toString()
                     }
+
                 }
             }
         }

@@ -1,19 +1,17 @@
 <resources>
     <string name="app_name">Suwit</string>
-    <string name="point_player">Point_Player</string>
-    <string name="point_lawan">Point_Lawan</string>
-    <string name="pilihan_lawan">Pilihan_Lawan</string>
-    <string name="pilihan_player">Pilihan_Player</string>
-    <string name="gunting_in_main">GUNTING!!!</string>
-    <string name="batu_in_main">BATU!!!</string>
-    <string name="kertas_in_main">KERTAS!!!</string>
-    <string name="klik_untuk_mulai">Klik tombol dibawah untuk mulai</string>
-    <string name="menunggu">Menunggu...</string>
-    <string name="lawan_in_main">Lawan:</string>
-    <string name="player_in_main">Player:</string>
-    <string name="log_aktivitas">Tap tombol Gunting, Batu, atau Kertas untuk memulai.\n</string>
+    <string name="playerLabel">Player:</string>
+    <string name="default_value">0</string>
+    <string name="enemyLabel">Lawan:</string>
+    <string name="default_string">Menunggu…</string>
     <string name="versus">versus</string>
-    <string name="seri">PERMAINAN SERI!</string>
-    <string name="menang">ANDA MENANG!</string>
-    <string name="kalah">ANDA KALAH!</string>
+    <string name="logs">Silahkan tap salah satu tombol dibawah ini untuk memulai permainan</string>
+    <string name="gunting">GUNTING!</string>
+    <string name="batu">BATU!</string>
+    <string name="kertas">KERTAS!</string>
+    <string name="seri">Permainan seri.</string>
+    <string name="menang">Player menang, point ditambahkan</string>
+    <string name="kalah">Player kalah, Lawan mendapatkan point</string>
+
+
 </resources>
